@@ -32,8 +32,6 @@ module.exports = function (config) {
 
             'src/bower_components/jquery/dist/jquery.js',
 
-            'src/bower_components/moment/moment.js',
-
             'src/bower_components/localforage/dist/localforage.js',
 
             'src/bower_components/angular-localforage/dist/angular-localForage.js',

@@ -43,6 +43,13 @@ Logo styles
     border-radius: 4px;
 }
 
+.search-box {
+    background: #fff;
+    min-height: 50px;
+    margin: 20px;
+    padding: 20px;
+}
+
 .chart-box {
     background: #fff;
     min-height: 100%;

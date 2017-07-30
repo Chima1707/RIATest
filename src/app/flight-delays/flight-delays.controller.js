@@ -55,6 +55,7 @@
 
             var averageDelayRatio = delayData.averageDelayRatio
             chartOptions.arrivalDelayRatio.drawLine.value = averageDelayRatio
+            console.log(averageDelayRatio)
 
             vm.chartData.arrivalDelayRatio = getArrivalDelayHistogramData(delayData.delayRatioData, chartOptions.arrivalDelayRatio);
             vm.histogramOptions.arrivalDelayRatio = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayRatio)

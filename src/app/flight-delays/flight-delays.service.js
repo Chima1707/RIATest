@@ -5,9 +5,9 @@
         .module('App')
         .factory('FlightDelayService', FlightDelayService);
 
-    FlightDelayService.$inject = ['$http', 'DATA_URL', 'DATA_INFO', 'moment', '$q', '$localForage'];
+    FlightDelayService.$inject = ['$http', 'DATA_URL', 'DATA_INFO', '$q', '$localForage'];
 
-    function FlightDelayService($http, DATA_URL, DATA_INFO, moment, $q, $localForage) {
+    function FlightDelayService($http, DATA_URL, DATA_INFO, $q, $localForage) {
 
         var flightDelayData;
 

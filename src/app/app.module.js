@@ -11,7 +11,6 @@
             'nvd3'
         ])
         .config(config)
-        .value('moment', moment)
 
     config.$inject = ['$urlRouterProvider']
 
