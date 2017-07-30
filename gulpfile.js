@@ -174,7 +174,7 @@ gulp.task('ngconstant:prod', function () {
         name: 'App',
         constants: {
             DEBUG_INFO_ENABLED: false,
-            DATA_URL: '/content/data.csv',
+            DATA_URL: '/RIATest/content/data.csv',
             DATA_INFO: config.dataFileInfo
         },
         template: config.constantTemplate,
