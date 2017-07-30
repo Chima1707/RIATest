@@ -1,0 +1,20 @@
+{
+  "extends": "angular",
+     "rules": {
+     "camelcase": 2,
+     "curly": 2,
+     "brace-style": [2, "1tbs"],
+     "quotes": [2, "single"],
+     "semi": ["error", "never"],
+     "array-bracket-spacing": [2, "never"],
+     "space-infix-ops": 2,
+     "indent": ["error", 2],
+     "no-unused-vars": 1,
+     "no-use-before-define": [2, "nofunc"],
+     "object-curly-spacing": [2, "never"],
+     "keyword-spacing": "error",
+     "space-in-brackets": [2, "never"],		
+     "space-unary-ops": 2	
+  }
+  
+}

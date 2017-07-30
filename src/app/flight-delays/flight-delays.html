@@ -1,0 +1,79 @@
+
+<div>
+    <div class="row">
+    <div class="col-md-3">
+      <ui-select 
+      ng-model="vm.selected.day"
+      title="Week day"
+      theme="bootstrap">
+    <ui-select-match placeholder="Choose a week day">
+        <span ng-bind="vm.selected.day.name"></span>
+    </ui-select-match>
+    <ui-select-choices repeat="day in (vm.weekDays | filter: $select.search) track by day.id" position='down'>
+        <span ng-bind="day.name"></span>
+    </ui-select-choices>
+      </ui-select>
+    </div>
+
+    <div class="col-md-3">
+      <ui-select 
+      ng-model="vm.selected.origin"
+      title="Origin airport">
+    <ui-select-match placeholder="Choose origin airport">
+        <span ng-bind="vm.selected.origin"></span>
+    </ui-select-match>
+    <ui-select-choices  repeat="airport in (vm.flightDelayData.airports | filter: $select.search) track by airport" position='down'>
+        <span ng-bind="airport"></span>
+    </ui-select-choices>
+      </ui-select>
+    </div>
+
+    <div class="col-md-3">
+       <ui-select 
+      ng-model="vm.selected.destination"
+      title="Destination airport">
+    <ui-select-match placeholder="Choose destination airport">
+        <span ng-bind="vm.selected.destination"></span>
+    </ui-select-match>
+    <ui-select-choices   repeat="airport in (vm.flightDelayData.airports | filter: $select.search) track by airport" position='down'>
+        <span  ng-bind="airport"></span>
+    </ui-select-choices>
+      </ui-select>
+    </div>
+
+    <div class="col-md-3">
+      <button class="btn btn-primary" ng-click="vm.search()"  ng-disabled="!vm.enableSearch()">
+        <span class="glyphicon glyphicon-search"></span> <span>Go</span>
+      </button>
+    </div>
+   </div>
+
+
+   <div class="vertical-offset-50"> </div>
+   
+
+
+   <div class="row">
+   <div class="col-md-6 col-xm-12">
+   <div class="chart-box radius-primary"> 
+       <div class="padded-title"> 
+           <h4>Arrival delays</h4>
+       </div>
+       <nvd3  options="vm.histogramOptions.arrivalDelayTime" data="vm.chartData.arrivalDelaytime"></nvd3>
+   </div>
+   </div>
+
+   <div class="col-md-6 col-xm-12">
+   <div class="chart-box radius-primary"> 
+       <div class="padded-title"> 
+           <h4>Arrival delay ratio</h4>
+       </div>
+       <nvd3 id="ratios" options="vm.histogramOptions.arrivalDelayRatio" data="vm.chartData.arrivalDelayRatio"></nvd3>
+   </div>
+   </div>
+
+   </div>
+
+</div>
+
+

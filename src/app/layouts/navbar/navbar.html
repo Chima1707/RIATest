@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="#/" ng-click="vm.collapseNavbar()">
+                <img class="logo-img" src="content/images/logo-jhipster.png"/>
+                <span>Flight Delay </span>
+            </a>
+        </div>
+        <div class="navbar-collapse" uib-collapse="vm.isNavbarCollapsed">
+            <ul class="nav navbar-nav navbar-left">
+                <li ui-sref-active="active">
+                    <a ui-sref="flight-delays" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-clock"></span>
+                        <span class="hidden-sm">Arrival delays</span>
+                    </a>
+                </li>
+
+                <li ui-sref-active="active">
+                    <a ui-sref="analysis" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-chart"></span>
+                        <span class="hidden-sm">Analysis</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Flight Delays</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css content/css/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css">
+    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+    <!-- build:css content/css/main.css -->
+    <link rel="stylesheet" href="content/css/main.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="App">
+<div ui-view="navbar" ng-cloak></div>
+<div class="container">
+    <div ui-view="content">
+        <!-- Angular views -->
+    </div>
+
+</div>
+
+
+
+<!-- build:js app/vendor.js -->
+<!-- bower:js -->
+
+
+
+
+<script src="bower_components/angular/angular.js"></script>
+
+
+
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+
+
+
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+
+
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+
+
+
+
+<script src="bower_components/moment/moment.js"></script>
+
+
+
+
+<script src="bower_components/localforage/dist/localforage.js"></script>
+
+
+
+
+<script src="bower_components/angular-localforage/dist/angular-localForage.js"></script>
+
+
+
+
+<script src="bower_components/angular-ui-select/dist/select.js"></script>
+
+
+
+
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+
+
+
+<script src="bower_components/d3/d3.js"></script>
+
+
+
+
+<script src="bower_components/nvd3/build/nv.d3.js"></script>
+
+
+
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+
+
+<script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+
+
+
+
+<!-- endinject -->
+<!-- endbuild -->
+
+<!-- build:js app/app.js  -->
+<!-- inject:js -->
+
+<script src="app/app.module.js"></script>
+
+<script src="app/layouts/navbar/navbar.controller.js"></script>
+
+<script src="app/flight-delays/flight-delays.state.js"></script>
+
+<script src="app/flight-delays/flight-delays.service.js"></script>
+
+<script src="app/flight-delays/flight-delays.controller.js"></script>
+
+<script src="app/flight-delays/flight-delays.charts.service.js"></script>
+
+<script src="app/flight-delays/analysis/analysis.controller.js"></script>
+
+<script src="app/app.state.js"></script>
+
+<script src="app/app.constants.js"></script>
+
+<!-- endinject -->
+<!-- endbuild -->
+
+</body>
+</html>
