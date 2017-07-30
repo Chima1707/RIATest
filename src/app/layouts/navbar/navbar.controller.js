@@ -1,26 +1,26 @@
 (function () {
-    'use strict';
+  'use strict'
 
-    angular
+  angular
         .module('App')
-        .controller('NavbarController', NavbarController);
+        .controller('NavbarController', NavbarController)
 
-    NavbarController.$inject = [];
+  NavbarController.$inject = []
 
-    function NavbarController() {
-        var vm = this;
+  function NavbarController () {
+    var vm = this
 
-        vm.isNavbarCollapsed = true;
+    vm.isNavbarCollapsed = true
 
-        vm.toggleNavbar = toggleNavbar;
-        vm.collapseNavbar = collapseNavbar;
+    vm.toggleNavbar = toggleNavbar
+    vm.collapseNavbar = collapseNavbar
 
-        function toggleNavbar() {
-            vm.isNavbarCollapsed = !vm.isNavbarCollapsed;
-        }
-
-        function collapseNavbar() {
-            vm.isNavbarCollapsed = true;
-        }
+    function toggleNavbar () {
+      vm.isNavbarCollapsed = !vm.isNavbarCollapsed
     }
-})();
+
+    function collapseNavbar () {
+      vm.isNavbarCollapsed = true
+    }
+  }
+})()

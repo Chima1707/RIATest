@@ -1,29 +1,29 @@
-(function() {
-    'use strict';
+(function () {
+  'use strict'
 
-    angular
+  angular
         .module('App')
-        .config(stateConfig);
+        .config(stateConfig)
 
-    stateConfig.$inject = ['$stateProvider'];
+  stateConfig.$inject = ['$stateProvider']
 
-    function stateConfig($stateProvider) {
-        $stateProvider.state('app', {
-            abstract: true,
-            views: {
-                'navbar@': {
-                    templateUrl: 'app/layouts/navbar/navbar.html',
-                    controller: 'NavbarController',
-                    controllerAs: 'vm'
-                }
-            },
-            resolve: {
-                flightDelayData:['FlightDelayService',
-                    function (FlightDelayService) {
-                        return FlightDelayService.getFlightDelayData();
-                    }
-                ]
-            }
-        });
-    }
-})();
+  function stateConfig ($stateProvider) {
+    $stateProvider.state('app', {
+      abstract: true,
+      views: {
+        'navbar@': {
+          templateUrl: 'app/layouts/navbar/navbar.html',
+          controller: 'NavbarController',
+          controllerAs: 'vm'
+        }
+      },
+      resolve: {
+        flightDelayData: ['FlightDelayService',
+          function (FlightDelayService) {
+            return FlightDelayService.getFlightDelayData()
+          }
+        ]
+      }
+    })
+  }
+})()

@@ -8,6 +8,7 @@
         .constant('DATA_URL', "/content/data.csv")
         .constant('DATA_INFO', {
 	"START_INDEX": 1,
+	"SEPERATOR": ",",
 	"FLIGHT_DATE_COL": 0,
 	"ORIGIN_COL": 1,
 	"DEST_COL": 2,

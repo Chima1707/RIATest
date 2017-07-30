@@ -1,20 +1,18 @@
-var notify = require("gulp-notify");
-var argv = require('yargs').argv;
+var notify = require('gulp-notify')
+var argv = require('yargs').argv
 
-module.exports = function() {
-
-    var args = Array.prototype.slice.call(arguments);
-    var notification = argv.notification === undefined ? true : argv.notification;
+module.exports = function () {
+  var args = Array.prototype.slice.call(arguments)
+  var notification = argv.notification === undefined ? true : argv.notification
     // Send error to notification center with gulp-notify
-    if(notification) {
-        notify.onError({
-            title:    "Gulp Build",
-            subtitle: "Failure!",
-            message:  "Error: <%= error.message %>",
-            sound:    "Beep"
-        }).apply(this, args);
-    }
+  if (notification) {
+    notify.onError({
+      title: 'Gulp Build',
+      subtitle: 'Failure!',
+      message: 'Error: <%= error.message %>',
+      sound: 'Beep'
+    }).apply(this, args)
+  }
     // Keep gulp from hanging on this task
-    this.emit('end');
-
-};
+  this.emit('end')
+}
