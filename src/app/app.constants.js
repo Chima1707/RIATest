@@ -5,7 +5,7 @@
     angular
         .module('App')
         .constant('DEBUG_INFO_ENABLED', false)
-        .constant('DATA_URL', "/content/data.csv")
+        .constant('DATA_URL', "/RIATest/content/data.csv")
         .constant('DATA_INFO', {
 	"START_INDEX": 1,
 	"FLIGHT_DATE_COL": 0,
