@@ -175,7 +175,7 @@ gulp.task('ngconstant:prod', function () {
         constants: {
             DEBUG_INFO_ENABLED: false,
             DATA_URL: '/content/data.csv',
-            DATA: config.dataFileInfo
+            DATA_INFO: config.dataFileInfo
         },
         template: config.constantTemplate,
         stream: true
