@@ -123,6 +123,7 @@
             return $localForage.setItem('flightData', data)
                 .then(function (res) {
                     flightDelayData = res;
+                    return flightDelayData;
                 })
         }
 
