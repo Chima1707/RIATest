@@ -4,6 +4,5 @@ coverage
 node_modules
 tmp
 .git
-src/bower_components
 .DS_Store
 dist
