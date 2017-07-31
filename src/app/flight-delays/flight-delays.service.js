@@ -214,10 +214,17 @@
       return { delays: delays, distances: distances }
     }
 
+    function validateQuery (query) {
+      return Object.keys(query).every(function (key) {
+        return query[key]
+      })
+    }
+
     return {
       getFlightDelayData: getFlightDelayData,
       queryFlightDelays: queryFlightDelays,
-      getDelaysByDistance: getDelaysByDistance
+      getDelaysByDistance: getDelaysByDistance,
+      validateQuery: validateQuery
     }
   }
 })()

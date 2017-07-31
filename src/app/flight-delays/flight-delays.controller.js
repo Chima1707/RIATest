@@ -43,9 +43,7 @@
     vm.histogramOptions = {}
 
     vm.enableSearch = function () { // enable search button.
-      return Object.keys(vm.selected).every(function (key) {
-        return vm.selected[key]
-      })
+      return FlightDelayService.validateQuery(vm.selected)
     }
 
     vm.search = function () {
