@@ -59,9 +59,11 @@
     vm.search = function () {
             // get data that matches the current selection
       var delayData = FlightDelayService.queryFlightDelays(vm.selected, vm.flightDelayData.data)
-
             // set delay chart properties
-      vm.chartData.arrivalDelaytime = getArrivalDelayHistogramData(delayData.delayTimeData, chartOptions.arrivalDelayTime)
+      var arrivalData = getArrivalDelayHistogramData(delayData.delayTimeData, chartOptions.arrivalDelayTime)
+      vm.chartData.arrivalDelaytime = arrivalData.chartData
+      chartOptions.arrivalDelayTime.max = arrivalData.max // set chart max y axis option
+
       vm.histogramOptions.arrivalDelayTime = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayTime)
 
       var averageDelayRatio = delayData.averageDelayRatio
@@ -75,7 +77,9 @@
       chartOptions.arrivalDelayRatio.xAxisFormat = preBind(chartOptions.arrivalDelayRatio.intervals)
 
             // set delay ratio chart properties
-      vm.chartData.arrivalDelayRatio = getArrivalDelayHistogramData(delayData.delayRatioData, chartOptions.arrivalDelayRatio)
+      var delayRatioData = getArrivalDelayHistogramData(delayData.delayRatioData, chartOptions.arrivalDelayRatio)
+      vm.chartData.arrivalDelayRatio = delayRatioData.chartData
+      chartOptions.arrivalDelayRatio.max = delayRatioData.max
       vm.histogramOptions.arrivalDelayRatio = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayRatio)
     }
 
@@ -83,7 +87,7 @@
          * Get the required histogram data. called by both histogram charts
          * @param {Object} data- Chart data.
          * @param {Object}  options-  options.
-         * @returns {Array} = Array of Chart Data.
+         * @returns {Object} = Object with  Chart Data and max y axis value.
          */
     function getArrivalDelayHistogramData (data, options) {
       var range = [0, options.bins * options.intervals] // range on the xaxis
@@ -96,8 +100,7 @@
         }
         chartData.values.push([item.x, item.y])
       })
-      options.max = localMaxY // max y axis
-      return [chartData]
+      return { chartData: [chartData], max: localMaxY }
     }
   }
 })()

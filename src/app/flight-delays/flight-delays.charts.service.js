@@ -28,6 +28,7 @@
             bottom: 65,
             left: 50
           },
+          useInteractiveGuideline: false,
           callback: function (chart) {
             if (options.drawLine && options.drawLine.value) {
               var xScale = chart.xAxis.scale()
