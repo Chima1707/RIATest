@@ -196,7 +196,7 @@
                 .catch(getFlightDelayDataRemote)
     }
 
-/**
+        /**
          * Queries for flight delays.
          * @param {Object} query - Represents selected data points, day, origin.
          * @param {String} data - Flight delays data.
