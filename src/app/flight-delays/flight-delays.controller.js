@@ -5,9 +5,9 @@
         .module('App')
         .controller('FlightDelaysController', FlightDelaysController)
 
-  FlightDelaysController.$inject = ['FlightDelayService', 'FlightDelayChartService', 'flightDelayData']
+  FlightDelaysController.$inject = ['$timeout', 'FlightDelayService', 'FlightDelayChartService', 'flightDelayData', 'cfpLoadingBar']
 
-  function FlightDelaysController (FlightDelayService, FlightDelayChartService, flightDelayData) {
+  function FlightDelaysController ($timeout, FlightDelayService, FlightDelayChartService, flightDelayData, cfpLoadingBar) {
     var vm = this
     vm.flightDelayData = flightDelayData
     vm.selected = { day: '', origin: '', destination: '' } // keep track of search parameters
@@ -57,30 +57,35 @@
     }
 
     vm.search = function () {
-            // get data that matches the current selection
-      var delayData = FlightDelayService.queryFlightDelays(vm.selected, vm.flightDelayData.data)
+      cfpLoadingBar.start()
+
+      $timeout(function () {
+        cfpLoadingBar.complete()
+        // get data that matches the current selection
+        var delayData = FlightDelayService.queryFlightDelays(vm.selected, vm.flightDelayData.data)
             // set delay chart properties
-      var arrivalData = getArrivalDelayHistogramData(delayData.delayTimeData, chartOptions.arrivalDelayTime)
-      vm.chartData.arrivalDelaytime = arrivalData.chartData
-      chartOptions.arrivalDelayTime.max = arrivalData.max // set chart max y axis option
+        var arrivalData = getArrivalDelayHistogramData(delayData.delayTimeData, chartOptions.arrivalDelayTime)
+        vm.chartData.arrivalDelaytime = arrivalData.chartData
+        chartOptions.arrivalDelayTime.max = arrivalData.max // set chart max y axis option
 
-      vm.histogramOptions.arrivalDelayTime = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayTime)
+        vm.histogramOptions.arrivalDelayTime = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayTime)
 
-      var averageDelayRatio = delayData.averageDelayRatio
-      var maxDelayRatio = delayData.maxDelayRatio
-      chartOptions.arrivalDelayRatio.drawLine.value = averageDelayRatio // set the value of the average delay ratio
+        var averageDelayRatio = delayData.averageDelayRatio
+        var maxDelayRatio = delayData.maxDelayRatio
+        chartOptions.arrivalDelayRatio.drawLine.value = averageDelayRatio // set the value of the average delay ratio
             // set interval here based on maxDelayRatio
             // maxDelayRatio/bins
-      var delayRatioChartInterval = maxDelayRatio ? maxDelayRatio / chartOptions.arrivalDelayRatio.bins : 10
-      chartOptions.arrivalDelayRatio.intervals = delayRatioChartInterval
+        var delayRatioChartInterval = maxDelayRatio ? maxDelayRatio / chartOptions.arrivalDelayRatio.bins : 10
+        chartOptions.arrivalDelayRatio.intervals = delayRatioChartInterval
             // prebind intervals into xAxis formatter
-      chartOptions.arrivalDelayRatio.xAxisFormat = preBind(chartOptions.arrivalDelayRatio.intervals)
+        chartOptions.arrivalDelayRatio.xAxisFormat = preBind(chartOptions.arrivalDelayRatio.intervals)
 
             // set delay ratio chart properties
-      var delayRatioData = getArrivalDelayHistogramData(delayData.delayRatioData, chartOptions.arrivalDelayRatio)
-      vm.chartData.arrivalDelayRatio = delayRatioData.chartData
-      chartOptions.arrivalDelayRatio.max = delayRatioData.max
-      vm.histogramOptions.arrivalDelayRatio = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayRatio)
+        var delayRatioData = getArrivalDelayHistogramData(delayData.delayRatioData, chartOptions.arrivalDelayRatio)
+        vm.chartData.arrivalDelayRatio = delayRatioData.chartData
+        chartOptions.arrivalDelayRatio.max = delayRatioData.max
+        vm.histogramOptions.arrivalDelayRatio = FlightDelayChartService.getHistogramOptions(chartOptions.arrivalDelayRatio)
+      }, 2000)
     }
 
         /**

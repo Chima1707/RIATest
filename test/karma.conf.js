@@ -44,6 +44,10 @@ module.exports = function (config) {
 
       'src/bower_components/nvd3/build/nv.d3.js',
 
+      'src/bower_components/angular-loading-bar/build/loading-bar.js',
+
+      'src/bower_components/angular-animate/angular-animate.js',
+
       'src/bower_components/angular-mocks/angular-mocks.js',
 
       'src/bower_components/bootstrap/dist/js/bootstrap.js',

@@ -1,6 +1,6 @@
 describe('Controller: FlightDelaysController', function () {
   beforeEach(module('App'))
-
+  var $timeout
   var FlightDelaysController
   var scope
   var flightDelayData = {data: []}
@@ -8,7 +8,8 @@ describe('Controller: FlightDelaysController', function () {
   var FlightDelayChartService
 
   describe('FlightDelaysController', function () {
-    beforeEach(inject(function ($controller, $rootScope, _FlightDelayService_, _FlightDelayChartService_) {
+    beforeEach(inject(function ($controller, $rootScope, _FlightDelayService_, _FlightDelayChartService_, _$timeout_) {
+      $timeout = _$timeout_
       scope = $rootScope.$new()
       FlightDelayService = _FlightDelayService_
       FlightDelayChartService = _FlightDelayChartService_
@@ -43,6 +44,7 @@ describe('Controller: FlightDelaysController', function () {
 
     it('should query FlightDelayService and draw charts when search button is clicked', function () {
       scope.vm.search()
+      $timeout.flush()
       expect(FlightDelayService.queryFlightDelays).toHaveBeenCalled()
       expect(FlightDelayChartService.getHistogramOptions.calls.count()).toEqual(2)
     })
