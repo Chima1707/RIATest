@@ -1,10 +1,8 @@
-define( function() {
-
+define(function () {
 /**
  * Determines whether an object can have data
  */
-return function( owner ) {
-
+  return function (owner) {
 	// Accepts only:
 	//  - Node
 	//    - Node.ELEMENT_NODE
@@ -12,7 +10,6 @@ return function( owner ) {
 	//  - Object
 	//    - Any
 	/* jshint -W018 */
-	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
-};
-
-} );
+    return owner.nodeType === 1 || owner.nodeType === 9 || !(+owner.nodeType)
+  }
+})

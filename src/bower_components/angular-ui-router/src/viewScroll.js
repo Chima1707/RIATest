@@ -5,9 +5,8 @@
  * @description
  * Provider that returns the {@link ui.router.state.$uiViewScroll} service function.
  */
-function $ViewScrollProvider() {
-
-  var useAnchorScroll = false;
+function $ViewScrollProvider () {
+  var useAnchorScroll = false
 
   /**
    * @ngdoc function
@@ -19,8 +18,8 @@ function $ViewScrollProvider() {
    * scrolling based on the url anchor.
    */
   this.useAnchorScroll = function () {
-    useAnchorScroll = true;
-  };
+    useAnchorScroll = true
+  }
 
   /**
    * @ngdoc object
@@ -38,15 +37,15 @@ function $ViewScrollProvider() {
    */
   this.$get = ['$anchorScroll', '$timeout', function ($anchorScroll, $timeout) {
     if (useAnchorScroll) {
-      return $anchorScroll;
+      return $anchorScroll
     }
 
     return function ($element) {
       return $timeout(function () {
-        $element[0].scrollIntoView();
-      }, 0, false);
-    };
-  }];
+        $element[0].scrollIntoView()
+      }, 0, false)
+    }
+  }]
 }
 
-angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider);
+angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)

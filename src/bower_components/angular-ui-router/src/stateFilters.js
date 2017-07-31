@@ -7,13 +7,13 @@
  * @description
  * Translates to {@link ui.router.state.$state#methods_is $state.is("stateName")}.
  */
-$IsStateFilter.$inject = ['$state'];
-function $IsStateFilter($state) {
+$IsStateFilter.$inject = ['$state']
+function $IsStateFilter ($state) {
   var isFilter = function (state, params) {
-    return $state.is(state, params);
-  };
-  isFilter.$stateful = true;
-  return isFilter;
+    return $state.is(state, params)
+  }
+  isFilter.$stateful = true
+  return isFilter
 }
 
 /**
@@ -25,15 +25,15 @@ function $IsStateFilter($state) {
  * @description
  * Translates to {@link ui.router.state.$state#methods_includes $state.includes('fullOrPartialStateName')}.
  */
-$IncludedByStateFilter.$inject = ['$state'];
-function $IncludedByStateFilter($state) {
+$IncludedByStateFilter.$inject = ['$state']
+function $IncludedByStateFilter ($state) {
   var includesFilter = function (state, params, options) {
-    return $state.includes(state, params, options);
-  };
-  includesFilter.$stateful = true;
-  return  includesFilter;
+    return $state.includes(state, params, options)
+  }
+  includesFilter.$stateful = true
+  return includesFilter
 }
 
 angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
-  .filter('includedByState', $IncludedByStateFilter);
+  .filter('includedByState', $IncludedByStateFilter)

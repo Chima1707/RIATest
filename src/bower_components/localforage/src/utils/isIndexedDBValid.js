@@ -1,12 +1,12 @@
-import idb from './idb';
+import idb from './idb'
 
-function isIndexedDBValid() {
-    try {
+function isIndexedDBValid () {
+  try {
         // Initialize IndexedDB; fall back to vendor-prefixed versions
         // if needed.
-        if (!idb) {
-            return false;
-        }
+    if (!idb) {
+      return false
+    }
         // We mimic PouchDB here; just UA test for Safari (which, as of
         // iOS 8/Yosemite, doesn't properly support IndexedDB).
         // IndexedDB support is broken and different from Blink's.
@@ -16,22 +16,22 @@ function isIndexedDBValid() {
         //
         // We test for openDatabase because IE Mobile identifies itself
         // as Safari. Oh the lulz...
-        if (typeof openDatabase !== 'undefined' && typeof navigator !== 'undefined' &&
+    if (typeof openDatabase !== 'undefined' && typeof navigator !== 'undefined' &&
             navigator.userAgent &&
             /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent)) {
-            return false;
-        }
+      return false
+    }
 
-        return idb &&
+    return idb &&
             typeof idb.open === 'function' &&
                 // Some Samsung/HTC Android 4.0-4.3 devices
                 // have older IndexedDB specs; if this isn't available
                 // their IndexedDB is too old for us to use.
                 // (Replaces the onupgradeneeded test.)
-            typeof IDBKeyRange !== 'undefined';
-    } catch (e) {
-        return false;
-    }
+            typeof IDBKeyRange !== 'undefined'
+  } catch (e) {
+    return false
+  }
 }
 
-export default isIndexedDBValid;
+export default isIndexedDBValid

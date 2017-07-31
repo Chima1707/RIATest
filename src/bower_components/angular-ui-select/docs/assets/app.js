@@ -1,1 +1,1 @@
-var module = angular.module('ui.select.pages', ['plunkr']);
+var module = angular.module('ui.select.pages', ['plunkr'])

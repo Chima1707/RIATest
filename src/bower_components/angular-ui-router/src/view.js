@@ -1,8 +1,7 @@
 
-$ViewProvider.$inject = [];
-function $ViewProvider() {
-
-  this.$get = $get;
+$ViewProvider.$inject = []
+function $ViewProvider () {
+  this.$get = $get
   /**
    * @ngdoc object
    * @name ui.router.state.$view
@@ -13,8 +12,8 @@ function $ViewProvider() {
    * @description
    *
    */
-  $get.$inject = ['$rootScope', '$templateFactory'];
-  function $get(   $rootScope,   $templateFactory) {
+  $get.$inject = ['$rootScope', '$templateFactory']
+  function $get ($rootScope, $templateFactory) {
     return {
       // $view.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
       /**
@@ -27,19 +26,19 @@ function $ViewProvider() {
        * @param {string} name name
        * @param {object} options option object.
        */
-      load: function load(name, options) {
+      load: function load (name, options) {
         var result, defaults = {
-          template: null, controller: null, view: null, locals: null, notify: true, async: true, params: {}
-        };
-        options = extend(defaults, options);
+            template: null, controller: null, view: null, locals: null, notify: true, async: true, params: {}
+          }
+        options = extend(defaults, options)
 
         if (options.view) {
-          result = $templateFactory.fromConfig(options.view, options.params, options.locals);
+          result = $templateFactory.fromConfig(options.view, options.params, options.locals)
         }
-        return result;
+        return result
       }
-    };
+    }
   }
 }
 
-angular.module('ui.router.state').provider('$view', $ViewProvider);
+angular.module('ui.router.state').provider('$view', $ViewProvider)
