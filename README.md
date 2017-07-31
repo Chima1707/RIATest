@@ -5,7 +5,7 @@ To install the project please do the following:
 
 2. Clone the repository and install the required development dependencies by running the following
  ```sh
- git clone git@github.com:Chima1707/RIATest.git
+ git clone https://github.com/Chima1707/RIATest.git
  cd RIATest
  npm install
  ```

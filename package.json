@@ -48,6 +48,11 @@
     "run-sequence": "1.1.5",
     "yargs": "4.6.0"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chima1707/RIATest.git"
+  },
   "scripts": {
     "test": "gulp lint && gulp test"
   },
