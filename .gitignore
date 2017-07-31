@@ -5,4 +5,5 @@ node_modules
 tmp
 .git
 .DS_Store
-dist
+dist/
+!src/bower_components/**/dist/
