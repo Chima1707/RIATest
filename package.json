@@ -48,6 +48,7 @@
     "run-sequence": "1.1.5",
     "yargs": "4.6.0"
   },
+  "author": "Chima Alaebo <xhimat123@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -57,9 +58,6 @@
     "test": "gulp lint && gulp test"
   },
   "standard": {
-    "ignore": [
-      "*.constants.js"
-     ],
     "globals": [
       "angular",
       "d3",
