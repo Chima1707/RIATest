@@ -5,22 +5,14 @@
         .module('App')
         .controller('FlightDelaysController', FlightDelaysController)
 
-  FlightDelaysController.$inject = ['$timeout', 'FlightDelayService', 'FlightDelayChartService', 'flightDelayData', 'cfpLoadingBar']
+  FlightDelaysController.$inject = ['$timeout', 'WEEK_DAYS', 'FlightDelayService', 'FlightDelayChartService', 'flightDelayData', 'cfpLoadingBar']
 
-  function FlightDelaysController ($timeout, FlightDelayService, FlightDelayChartService, flightDelayData, cfpLoadingBar) {
+  function FlightDelaysController ($timeout, WEEK_DAYS, FlightDelayService, FlightDelayChartService, flightDelayData, cfpLoadingBar) {
     var vm = this
     vm.flightDelayData = flightDelayData
     vm.selected = { day: '', origin: '', destination: '' } // keep track of search parameters
 
-    vm.weekDays = [
-            { id: 0, name: 'Sunday' },
-            { id: 1, name: 'Monday' },
-            { id: 2, name: 'Tuesday' },
-            { id: 3, name: 'Wednesday' },
-            { id: 4, name: 'Thursday' },
-            { id: 5, name: 'Friday' },
-            { id: 6, name: 'Saturday' }
-    ]
+    vm.weekDays = WEEK_DAYS
 
     var chartOptions = {
       arrivalDelayTime: { // keep track of arrival delays chart options
@@ -36,7 +28,7 @@
         max: 0,
         intervals: 10,
         xAxis: 'Delay ratio in %',
-        yAxis: 'Frequency of arrival delays',
+        yAxis: 'Frequency of arrival delay  ratio',
         drawLine: { value: 0, text: 'Average(%) is ', chartId: 'ratios' }
       }
     }

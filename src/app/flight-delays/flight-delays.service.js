@@ -196,9 +196,28 @@
                 .catch(getFlightDelayDataRemote)
     }
 
+/**
+         * Queries for flight delays.
+         * @param {Object} query - Represents selected data points, day, origin.
+         * @param {String} data - Flight delays data.
+         * @returns {Object} = Object representing list of delays and corresponding list of distance.
+         */
+    function getDelaysByDistance (query, data) {
+      var delays = []
+      var distances = []
+      data.filter(function (item) {
+        return item.delayed && item.day === query.day.id && item.origin === query.origin
+      }).forEach(function (item) {
+        delays.push(item.arrivalDelay)
+        distances.push(item.distance)
+      })
+      return { delays: delays, distances: distances }
+    }
+
     return {
       getFlightDelayData: getFlightDelayData,
-      queryFlightDelays: queryFlightDelays
+      queryFlightDelays: queryFlightDelays,
+      getDelaysByDistance: getDelaysByDistance
     }
   }
 })()

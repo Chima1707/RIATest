@@ -83,8 +83,36 @@
       return histogramOptions
     }
 
+    function getScatterChartOptions (options) {
+      var scatterChartOptions = {
+        chart: {
+          type: 'scatterChart',
+          height: 400,
+
+          showDistX: true,
+          showDistY: true,
+          tooltipContent: function (key) {
+            return '<h3>' + key + '</h3>'
+          },
+          duration: 100,
+          useInteractiveGuideline: true,
+          xAxis: {
+            axisLabel: options.xAxis
+          },
+          yAxis: {
+            axisLabel: options.yAxis,
+            tickFormat: function (d) {
+              return d3.format('.02f')(d)
+            },
+            axisLabelDistance: -5
+          }
+        }
+      }
+      return scatterChartOptions
+    }
     return {
-      getHistogramOptions: getHistogramOptions
+      getHistogramOptions: getHistogramOptions,
+      getScatterChartOptions: getScatterChartOptions
     }
   }
 })()

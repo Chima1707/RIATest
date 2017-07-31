@@ -1,7 +1,7 @@
 ## Install
 To install the project please do the following:
 
-1. Make sure you have installed [Gulp](https://gulpjs.com/)
+1. Make sure you have installed `npm install gulp-cli -g`
 
 2. Clone the repository and install the required development dependencies by running the following
  ```sh

@@ -18,5 +18,16 @@
         }
       }
     })
+    $stateProvider.state('analysis', {
+      parent: 'app',
+      url: '/analysis',
+      views: {
+        'content@': {
+          templateUrl: 'app/flight-delays/analysis/analysis.html',
+          controller: 'FlightDelaysAnalysisController',
+          controllerAs: 'vm'
+        }
+      }
+    })
   }
 })()
